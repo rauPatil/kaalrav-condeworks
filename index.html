@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kaalrav Codeworks: full-stack product studio crafting web apps, mobile experiences, and automation for ambitious teams.">
+  <meta name="theme-color" content="#0b1020">
+  <title>Kaalrav Codeworks — Innovate. Create. Dominate.</title>
+  <link rel="stylesheet" href="assets/styles/main.css">
+</head>
+<body data-page="home">
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html#home">
+        <span class="logo" aria-hidden="true">
+          <img src="logo.png" alt="">
+        </span>
+        <span class="brand-name">Kaalrav Codeworks</span>
+      </a>
+
+      <nav class="links" aria-label="Primary">
+        <a href="services.html">Services</a>
+        <a href="work.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a class="cta" href="start-project.html">Start a Project</a>
+      </nav>
+
+      <button class="burger" type="button" aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation" data-menu-toggle>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <nav class="mobile" id="mobileMenu" aria-label="Mobile">
+      <div class="container mobile-inner">
+        <a href="services.html">Services</a>
+        <a href="work.html">Work</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a class="cta" href="start-project.html">Start a Project</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="mainContent" tabindex="-1">
+    <section class="hero" id="home">
+      <div class="container">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow" data-reveal>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 3l2.39 4.84L20 9l-4 3.9L17 19l-5-2.6L7 19l1-6.1L4 9l5.61-1.16L12 3z" stroke="currentColor" stroke-width="1.4"/></svg>
+            Building modern digital products
+          </span>
+          <p class="tag" data-reveal style="--delay:.04s">Product studio for ambitious teams</p>
+          <h1 data-reveal style="--delay:.08s">Innovate. <span class="gradient">Create.</span> Dominate.</h1>
+          <p class="sub" data-reveal style="--delay:.14s">We architect, design, and ship high-performance software — from idea to production. Web applications, mobile experiences, automation, and MERN expertise tailored to bold founders and forward-thinking brands.</p>
+
+          <div class="hero-cta" data-reveal style="--delay:.2s">
+            <a class="btn primary" href="start-project.html">Start a Project</a>
+            <a class="btn ghost" href="#services">Explore Services</a>
+          </div>
+        </div>
+        <aside class="hero-aside" data-reveal style="--delay:.24s">
+          <div class="micro-playground">
+            <div class="mini-card">
+              <div class="mini-head">
+                <span class="chip">Micro loop</span>
+                <div class="mini-score">
+                  <span class="label">Ping</span>
+                  <span class="value" id="sparkScore">0</span>
+                </div>
+              </div>
+              <canvas id="sparkGame" width="260" height="160" aria-label="Automated spark runner mini-game"></canvas>
+              <p class="mini-note">Our signal bot dashes across the grid, capturing opportunities on autopilot.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="badges" data-reveal style="--delay:.28s">
+        <span class="badge" title="React">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="2.2" fill="currentColor"/><path d="M12 4.5c-2.9 0-5.5.7-7.2 1.8C3.1 7.3 2.5 8.6 2.5 9.8s.6 2.5 2.3 3.5C6.5 14.3 9.1 15 12 15s5.5-.7 7.2-1.8c1.7-1 2.3-2.3 2.3-3.5s-.6-2.5-2.3-3.5C17.5 5.2 14.9 4.5 12 4.5z" stroke="currentColor" stroke-width="1.2"/></svg>
+          React
+        </span>
+          <span class="badge" title="Node.js &amp; Express">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 6l8-4 8 4v8l-8 4-8-4V6z" stroke="currentColor" stroke-width="1.2"/><path d="M9 10h6M9 13h6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            Node &amp; Express
+          </span>
+          <span class="badge" title="MongoDB">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 3s5 4 5 9-5 9-5 9-5-4-5-9 5-9 5-9z" stroke="currentColor" stroke-width="1.2"/></svg>
+            MongoDB
+          </span>
+          <span class="badge" title="Python Automation">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 5a3 3 0 013-3h2a3 3 0 013 3v3H8a3 3 0 01-3-3" stroke="currentColor" stroke-width="1.2"/><path d="M16 19a3 3 0 01-3 3h-2a3 3 0 01-3-3v-3h8a3 3 0 003 3" stroke="currentColor" stroke-width="1.2"/></svg>
+            Python Automation
+          </span>
+        <span class="badge" title="Mobile Apps">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="3" stroke="currentColor" stroke-width="1.2"/><circle cx="12" cy="18" r="1.2" fill="currentColor"/></svg>
+          Mobile Apps
+        </span>
+      </div>
+      </div>
+    </section>
+
+    <section id="systemFlow" class="system-flow">
+      <div class="container">
+        <div class="section-head align-left">
+          <span class="eyebrow" data-reveal>Engineering arcade</span>
+          <h2 class="section-title" data-reveal style="--delay:.04s">System Flow Showcase</h2>
+          <p class="section-sub" data-reveal style="--delay:.08s">A single loop powers every launch. Signals enter, design orchestrates, engineering executes, and ops watches the gauges — just like a co-op video game with shared objectives.</p>
+        </div>
+        <div class="system-flow-grid">
+          <div class="flow-panel" data-reveal style="--delay:.1s">
+            <h3>Four-stage co-op loop</h3>
+            <p>The same loop connects system design, interface craft, engineering excellence, and operational rigor.</p>
+            <ul class="flow-stages">
+              <li class="flow-stage">
+                <span class="stage-label">Signal intake</span>
+                <span class="stage-meta">Strategy kick-offs, architecture sketches, KPIs, and scenario planning.</span>
+                <span class="stage-tag">Strategy</span>
+              </li>
+              <li class="flow-stage">
+                <span class="stage-label">Design forge</span>
+                <span class="stage-meta">Design systems, motion passes, and content choreography synced with dev constraints.</span>
+                <span class="stage-tag">Design</span>
+              </li>
+              <li class="flow-stage">
+                <span class="stage-label">Engineering core</span>
+                <span class="stage-meta">MERN builds, automation harnesses, and observability hooks that keep quality visible.</span>
+                <span class="stage-tag">Build</span>
+              </li>
+              <li class="flow-stage">
+                <span class="stage-label">Launch control</span>
+                <span class="stage-meta">Progressive delivery, telemetry dashboards, and ops runbooks feeding the next sprint.</span>
+                <span class="stage-tag">Ops</span>
+              </li>
+            </ul>
+            <div class="flow-console">
+              <span class="console-label">Live ops feed</span>
+              <pre aria-label="System flow console log">
+00:01 ▶ Intake: Mission + KPIs locked
+00:05 ▶ Design Forge: Token pack v3 synced
+00:09 ▶ Engineering Core: Microservices green (5/5)
+00:13 ▶ Launch Control: Canary @ 20% traffic
+00:16 ▶ Telemetry: Delight score +11%
+↻ Loop resets with new data packs
+              </pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head align-left">
+          <span class="eyebrow" data-reveal>Capability lineup</span>
+          <h2 class="section-title" data-reveal>Services</h2>
+          <p class="section-sub" data-reveal style="--delay:.06s">End-to-end product development with a focus on performance, security, and maintainability. Choose a track or mix-and-match for your roadmap.</p>
+        </div>
+        <div class="grid services-grid">
+          <article class="card" data-reveal>
+            <span class="chip">Web Apps</span>
+            <h3>Full Web Application Development</h3>
+            <p>Design-first, API-driven apps with modular front-end architecture, CI/CD, and cloud-ready deployments.</p>
+            <ul class="pill-list">
+              <li>Next.js / React platforms</li>
+              <li>Headless CMS + GraphQL</li>
+              <li>Observability baked in</li>
+            </ul>
+          </article>
+          <article class="card" data-reveal style="--delay:.06s">
+            <span class="chip">Mobile</span>
+            <h3>Mobile App Development</h3>
+            <p>Fast, native-feeling cross-platform apps with offline support, push notifications, and analytics baked in.</p>
+            <ul class="pill-list">
+              <li>React Native &amp; Flutter</li>
+              <li>App store deployment</li>
+              <li>In-app experimentation</li>
+            </ul>
+          </article>
+          <article class="card" data-reveal style="--delay:.12s">
+            <span class="chip">Automation</span>
+            <h3>Python Automation</h3>
+            <p>Automate workflows, data processing, and integrations to save hours every week and scale operations.</p>
+            <ul class="pill-list">
+              <li>Airflow-style orchestration</li>
+              <li>Web scraping &amp; ETL</li>
+              <li>Slack / Teams copilots</li>
+            </ul>
+          </article>
+          <article class="card" data-reveal style="--delay:.18s">
+            <span class="chip">MERN</span>
+            <h3>MERN Stack Development</h3>
+            <p>MongoDB, Express, React, Node — a battle-tested stack for rapidly building reliable, scalable products.</p>
+            <ul class="pill-list">
+              <li>Microservice blueprints</li>
+              <li>Serverless APIs</li>
+              <li>Performance tuning</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-head align-left">
+          <span class="eyebrow" data-reveal>Shipping log</span>
+          <h2 class="section-title" data-reveal>Recent Work</h2>
+          <p class="section-sub" data-reveal style="--delay:.06s">Hand-picked case studies will appear here. Add product shots, performance metrics, and the stack used for each build.</p>
+        </div>
+        <div class="grid work-grid">
+          <article class="card" data-reveal>
+            <h3>Hotel Room Management System</h3>
+            <p>Short teaser about the outcome, impact, and unique challenges solved. Replace with your real projects.</p>
+            <a class="link" href="#" aria-disabled="true">Case study coming soon</a>
+          </article>
+          <article class="card" data-reveal style="--delay:.06s">
+            <h3>Project Title</h3>
+            <p>Short teaser about the outcome, impact, and unique challenges solved. Replace with your real projects.</p>
+            <a class="link" href="#" aria-disabled="true">Case study coming soon</a>
+          </article>
+          <article class="card" data-reveal style="--delay:.12s">
+            <h3>Project Title</h3>
+            <p>Short teaser about the outcome, impact, and unique challenges solved. Replace with your real projects.</p>
+            <a class="link" href="#" aria-disabled="true">Case study coming soon</a>
+          </article>
+          <article class="card" data-reveal style="--delay:.18s">
+            <h3>Project Title</h3>
+            <p>Short teaser about the outcome, impact, and unique challenges solved. Replace with your real projects.</p>
+            <a class="link" href="#" aria-disabled="true">Case study coming soon</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="section-head align-left">
+          <span class="eyebrow" data-reveal>Inside the studio</span>
+          <h2 class="section-title" data-reveal>About</h2>
+          <p class="section-sub" data-reveal style="--delay:.06s">Kaalrav Codeworks is a product-driven studio focused on shipping clean, scalable software. We combine engineering discipline with modern design to launch experiences that feel effortless.</p>
+        </div>
+        <ul class="pill-list" data-reveal style="--delay:.12s">
+          <li>Discovery-led planning and roadmaps</li>
+          <li>Design systems that scale with your product</li>
+          <li>Automation-first engineering mindset</li>
+          <li>Transparent comms with weekly demos</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head align-left">
+          <span class="eyebrow" data-reveal>Kickoff ready</span>
+          <h2 class="section-title" data-reveal>Start a Project</h2>
+          <p class="section-sub" data-reveal style="--delay:.06s">Tell us about your idea and goals. We’ll get back within 24 hours.</p>
+        </div>
+        <div class="grid contact-grid">
+          <article class="card contact-card" data-reveal>
+            <h3>Contact</h3>
+            <p>Share your pitch deck, product vision, or engineering backlog. We’ll help you design the plan.</p>
+            <ul class="contact-links">
+              <li><a href="mailto:howdy@kaalrav.com">howdy@kaalrav.com</a></li>
+              <li><a href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a></li>
+            </ul>
+            <p class="note">Replace with your real contact details.</p>
+          </article>
+          <form id="contactForm" class="card contact-form" data-reveal style="--delay:.08s">
+            <h3>Quick Brief</h3>
+            <div class="field">
+              <label for="name">Name</label>
+              <input class="input" id="name" name="name" type="text" placeholder="Your name" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input class="input" id="email" name="email" type="email" placeholder="Email address" required>
+            </div>
+            <div class="field">
+              <label for="service">Service needed</label>
+              <select class="input" id="service" name="service" required>
+                <option value="">Select a service</option>
+                <option>Full Web App Development</option>
+                <option>Mobile App Development</option>
+                <option>Python Automation</option>
+                <option>MERN Stack Development</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Project goals, scope, timeline</label>
+              <textarea class="input" id="message" name="message" rows="4" placeholder="Share project details"></textarea>
+            </div>
+            <button class="btn primary submit" type="submit">
+              <span>Send Brief</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Kaalrav Codeworks</div>
+      <div class="footer-links">
+        <span>Made with passion — Pune, India</span>
+        <a href="#services">Services</a>
+        <a href="start-project.html">Start a Project</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/scripts/main.js" defer></script>
+</body>
+</html>
