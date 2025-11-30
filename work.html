@@ -13,9 +13,12 @@
     <div class="container nav">
       <a class="brand" href="index.html#home">
         <span class="logo" aria-hidden="true">
-          <img src="logo.png" alt="">
+          <img src="assets/images/brand/logo.png" alt="">
         </span>
-        <span class="brand-name">Kaalrav Codeworks</span>
+        <span class="brand-text">
+          <span class="brand-name">Kaalrav Codeworks</span>
+          <span class="brand-tagline">Innovate. Create. Dominate.</span>
+        </span>
       </a>
 
       <nav class="links" aria-label="Primary">
@@ -59,47 +62,116 @@
       <div class="container">
         <h2 class="section-title" data-reveal>Recent Work</h2>
         <p class="section-sub" data-reveal style="--delay:.06s">An evolving snapshot of the products we’ve launched recently.</p>
-        <div class="grid work-grid">
-          <article class="card" data-reveal>
-            <span class="chip">FinTech</span>
-            <h3>Hotel Room Manage System</h3>
-            <p>Real-time treasury and compliance management platform handling 12M+ transactions per month.</p>
-            <ul class="pill-list">
-              <li>React</li>
-              <li>Chakra UI</li>
-              <li>Node.js microservices</li>
-              <li>Automated reporting</li>
-            </ul>
+        <div class="case-grid">
+          <article class="case-card" data-reveal>
+            <div class="case-media">
+              <div class="carousel" data-carousel data-interval="4800">
+                <div class="carousel-track" data-carousel-track>
+                  <figure class="carousel-slide is-active">
+                    <img src="assets/images/portfolio/manufacturing/manufacturing_img1.png" alt="Smart manufacturing dashboard showing production overview cards">
+                  </figure>
+                  <figure class="carousel-slide">
+                    <img src="assets/images/portfolio/manufacturing/manufacturing_img2.png" alt="Workforce management view with shifts and assignments">
+                  </figure>
+                  <figure class="carousel-slide">
+                    <img src="assets/images/portfolio/manufacturing/manufacturing_img3.png" alt="Machine status grid with live efficiency indicators">
+                  </figure>
+                  <figure class="carousel-slide">
+                    <img src="assets/images/portfolio/manufacturing/manufacturing_img4.png" alt="Orders and inventory status with analytics charts">
+                  </figure>
+                </div>
+                <button class="carousel-control prev" type="button" aria-label="Previous manufacturing screen" data-carousel-prev>
+                  &larr;
+                </button>
+                <button class="carousel-control next" type="button" aria-label="Next manufacturing screen" data-carousel-next>
+                  &rarr;
+                </button>
+                <div class="carousel-dots" data-carousel-dots></div>
+              </div>
+            </div>
+            <div class="case-body">
+              <span class="chip">Manufacturing</span>
+              <h3>Smart Manufacturing Console</h3>
+              <p class="case-lede">A premium, minimal control center that surfaces production health, machine utilization, and people operations in one place.</p>
+              <ul class="pill-list">
+                <li>Real-time production and downtime overview</li>
+                <li>Machine status grid with efficiency tags</li>
+                <li>Orders, inventory, and workforce snapshots</li>
+              </ul>
+              <div class="case-actions">
+                <a class="btn primary" href="project-details.html#manufacturing">Project details</a>
+                <a class="btn ghost" href="https://manufacturing-ops-hub.netlify.app" target="_blank" rel="noreferrer">View live</a>
+              </div>
+            </div>
           </article>
-          <article class="card" data-reveal style="--delay:.06s">
-            <span class="chip">HealthTech</span>
-            <h3>Pulse Mobile</h3>
-            <p>Cross-platform telemedicine app with offline-first consultations and wearable integrations.</p>
-            <ul class="pill-list">
-              <li>React Native</li>
-              <li>GraphQL APIs</li>
-              <li>HIPAA compliant infra</li>
-            </ul>
+
+          <article class="case-card" data-reveal style="--delay:.08s">
+            <div class="case-media">
+              <div class="carousel" data-carousel data-interval="5200">
+                <div class="carousel-track" data-carousel-track>
+                  <figure class="carousel-slide is-active">
+                    <img src="assets/images/portfolio/hotel-admin/hotel_admin_intro.png" alt="Hotel admin dashboard overview">
+                  </figure>
+                </div>
+                <div class="carousel-dots" data-carousel-dots></div>
+              </div>
+            </div>
+            <div class="case-body">
+              <span class="chip">Hotel Owner Management</span>
+              <h3>Hotel Admin Suite</h3>
+              <p class="case-lede">An admin dashboard for hotel owners to orchestrate multiple properties, rooms, and day-to-day ops with confidence.</p>
+              <ul class="pill-list">
+                <li>Portfolio and property health overview</li>
+                <li>Inventory, rates, and housekeeping routing</li>
+                <li>Role-based access with activity history</li>
+              </ul>
+              <div class="case-actions">
+                <a class="btn primary" href="project-details.html#hotel-admin">Project details</a>
+                <a class="btn ghost" href="https://your-netlify-hotel-admin-link.com" target="_blank" rel="noreferrer">View live</a>
+              </div>
+            </div>
           </article>
-          <article class="card" data-reveal style="--delay:.12s">
-            <span class="chip">SaaS</span>
-            <h3>FlowOS Automation</h3>
-            <p>Workflow automation suite featuring drag-and-drop builders and Python-powered bots.</p>
-            <ul class="pill-list">
-              <li>MERN stack</li>
-              <li>Python automation</li>
-              <li>Usage analytics dashboards</li>
-            </ul>
-          </article>
-          <article class="card" data-reveal style="--delay:.18s">
-            <span class="chip">eCommerce</span>
-            <h3>Arcade Launchpad</h3>
-            <p>Headless storefront with personalised merchandising and real-time inventory orchestration.</p>
-            <ul class="pill-list">
-              <li>Next.js &amp; Tailwind</li>
-              <li>Stripe &amp; Shopify</li>
-              <li>Edge caching strategy</li>
-            </ul>
+
+          <article class="case-card" data-reveal style="--delay:.16s">
+            <div class="case-media">
+              <div class="carousel" data-carousel data-interval="5000">
+                <div class="carousel-track" data-carousel-track>
+                  <figure class="carousel-slide is-active">
+                    <img src="assets/images/portfolio/staycraft/room-1.png" alt="Staycraft home screen featuring featured rooms">
+                  </figure>
+                  <figure class="carousel-slide">
+                    <img src="assets/images/portfolio/staycraft/room-2.png" alt="Room listing grid showing pricing and availability">
+                  </figure>
+                  <figure class="carousel-slide">
+                    <img src="assets/images/portfolio/staycraft/room-3.png" alt="Room details page with amenities and gallery">
+                  </figure>
+                  <figure class="carousel-slide">
+                    <img src="assets/images/portfolio/staycraft/room-4.png" alt="Booking checkout screen summarizing stay details">
+                  </figure>
+                </div>
+                <button class="carousel-control prev" type="button" aria-label="Previous Staycraft screen" data-carousel-prev>
+                  &larr;
+                </button>
+                <button class="carousel-control next" type="button" aria-label="Next Staycraft screen" data-carousel-next>
+                  &rarr;
+                </button>
+                <div class="carousel-dots" data-carousel-dots></div>
+              </div>
+            </div>
+            <div class="case-body">
+              <span class="chip">Room Rentals</span>
+              <h3>Staycraft Room Rentals</h3>
+              <p class="case-lede">Guest-friendly booking app with immersive visuals, amenity clarity, and a frictionless checkout across mobile and web.</p>
+              <ul class="pill-list">
+                <li>Discovery-led listings with rich galleries</li>
+                <li>Room detail views with amenities, reviews, and policies</li>
+                <li>Streamlined booking steps with transparent pricing</li>
+              </ul>
+              <div class="case-actions">
+                <a class="btn primary" href="project-details.html#staycraft">Project details</a>
+                <a class="btn ghost" href="contact.html">Request a demo</a>
+              </div>
+            </div>
           </article>
         </div>
       </div>
@@ -139,17 +211,14 @@
         <h2 class="section-title" data-reveal>What partners say</h2>
         <p class="section-sub" data-reveal style="--delay:.06s">Relationships built on trust, transparency, and outcomes.</p>
         <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-          <blockquote class="card" data-reveal>
-            <p>“Kaalrav helped us re-architect the entire onboarding flow in six weeks. Conversion doubled while the platform stayed blazing fast.”</p>
-            <cite>— Maya Shah, Founder @ NovaPay</cite>
-          </blockquote>
-          <blockquote class="card" data-reveal style="--delay:.08s">
-            <p>“Their hybrid team worked hand in hand with ours, delivering pixel-perfect UI and bulletproof APIs every sprint.”</p>
-            <cite>— Rafael Ortiz, CTO @ Pulse Health</cite>
-          </blockquote>
+         
           <blockquote class="card" data-reveal style="--delay:.16s">
             <p>“The automation stack they shipped replaced 20+ weekly manual ops tasks. Productivity and morale have never been higher.”</p>
             <cite>— Priya Iyer, COO @ FlowOS</cite>
+          </blockquote>
+          <blockquote class="card" data-reveal style="--delay:.24s">
+            <p>“Kaalrav built my mouth fresher storefront exactly how I imagined it — clean, modern, and precise to the brief. They understood what I needed and delivered top-notch quality end to end.”</p>
+            <cite>— Dipesh Bagul</cite>
           </blockquote>
         </div>
       </div>

@@ -79,6 +79,113 @@
     });
   });
 
+  const carousels = document.querySelectorAll('[data-carousel]');
+  if (carousels.length) {
+    carousels.forEach((carousel) => {
+      const track = carousel.querySelector('[data-carousel-track]');
+      const slides = track ? Array.from(track.children) : [];
+      if (!track || !slides.length) return;
+
+      const dotsHost = carousel.querySelector('[data-carousel-dots]');
+      const prevButton = carousel.querySelector('[data-carousel-prev]');
+      const nextButton = carousel.querySelector('[data-carousel-next]');
+      const autoplayEnabled = !prefersReducedMotion.matches && slides.length > 1;
+      const interval = Number(carousel.dataset.interval) || 5200;
+      const dots = [];
+      let activeIndex = 0;
+      let timer = null;
+
+      if (dotsHost) {
+        dotsHost.innerHTML = '';
+        slides.forEach((_, slideIndex) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'carousel-dot';
+          dot.setAttribute('aria-label', `Go to slide ${slideIndex + 1}`);
+          dot.dataset.carouselDot = '';
+          dot.addEventListener('click', () => {
+            setActive(slideIndex);
+            restartAutoplay();
+          });
+          dotsHost.appendChild(dot);
+          dots.push(dot);
+        });
+        if (slides.length <= 1) {
+          dotsHost.style.display = 'none';
+        }
+      }
+
+      function setActive(index) {
+        if (!slides.length) return;
+        activeIndex = (index + slides.length) % slides.length;
+        slides.forEach((slide, slideIndex) => {
+          const isActive = slideIndex === activeIndex;
+          slide.classList.toggle('is-active', isActive);
+          slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+        });
+        if (dots.length) {
+          dots.forEach((dot, dotIndex) => {
+            dot.classList.toggle('is-active', dotIndex === activeIndex);
+          });
+        }
+      }
+
+      function goNext(step = 1) {
+        setActive(activeIndex + step);
+      }
+
+      function stopAutoplay() {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      }
+
+      function startAutoplay() {
+        if (!autoplayEnabled) return;
+        stopAutoplay();
+        timer = window.setInterval(() => {
+          goNext(1);
+        }, interval);
+      }
+
+      function restartAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+      }
+
+      if (prevButton && slides.length > 1) {
+        prevButton.addEventListener('click', () => {
+          goNext(-1);
+          restartAutoplay();
+        });
+      } else if (prevButton) {
+        prevButton.hidden = true;
+      }
+
+      if (nextButton && slides.length > 1) {
+        nextButton.addEventListener('click', () => {
+          goNext(1);
+          restartAutoplay();
+        });
+      } else if (nextButton) {
+        nextButton.hidden = true;
+      }
+
+      if (!slides.length || slides.length <= 1) {
+        stopAutoplay();
+      }
+
+      carousel.addEventListener('mouseenter', stopAutoplay);
+      carousel.addEventListener('mouseleave', startAutoplay);
+      carousel.addEventListener('focusin', stopAutoplay);
+      carousel.addEventListener('focusout', startAutoplay);
+
+      setActive(0);
+      startAutoplay();
+    });
+  }
+
   const yearElement = document.getElementById('year');
   if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
@@ -425,6 +532,100 @@
     });
 
     updatePlanner();
+  }
+
+  const discoveryStorageKey = 'kaalrav-discovery-dismissed';
+  const discoverySessionKey = 'kaalrav-discovery-shown';
+  let discoveryPrompt;
+  let discoveryShown = false;
+
+  function isPromptSuppressed() {
+    const resumeTime = Number(localStorage.getItem(discoveryStorageKey) || 0);
+    if (resumeTime && Date.now() < resumeTime) {
+      return true;
+    }
+    return sessionStorage.getItem(discoverySessionKey) === '1';
+  }
+
+  function suppressPrompt(days = 3) {
+    const ms = days * 24 * 60 * 60 * 1000;
+    localStorage.setItem(discoveryStorageKey, (Date.now() + ms).toString());
+    sessionStorage.setItem(discoverySessionKey, '1');
+  }
+
+  function buildDiscoveryPrompt() {
+    if (discoveryPrompt) return discoveryPrompt;
+    discoveryPrompt = document.createElement('aside');
+    discoveryPrompt.className = 'discovery-prompt';
+    discoveryPrompt.setAttribute('role', 'dialog');
+    discoveryPrompt.setAttribute('aria-live', 'polite');
+    discoveryPrompt.innerHTML = `
+      <button class="discovery-prompt-close" type="button" aria-label="Dismiss discovery call invite" data-discovery-close>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <small>Need backup?</small>
+      <h4>Book a 15-min discovery call</h4>
+      <p>Share your current bottleneck and we’ll map the fastest path forward with a dedicated pod lead.</p>
+      <div class="discovery-prompt-actions">
+        <a class="btn primary" href="start-project.html">Plan my build</a>
+        <a class="btn ghost" href="contact.html">Talk to a human</a>
+      </div>
+    `;
+    document.body.appendChild(discoveryPrompt);
+    const closeButton = discoveryPrompt.querySelector('[data-discovery-close]');
+    if (closeButton) {
+      closeButton.addEventListener('click', () => {
+        hideDiscoveryPrompt(true);
+      });
+    }
+    return discoveryPrompt;
+  }
+
+  function showDiscoveryPrompt(trigger) {
+    if (discoveryShown || isPromptSuppressed()) return;
+    const promptElement = buildDiscoveryPrompt();
+    if (!promptElement) return;
+    promptElement.classList.add('is-visible');
+    discoveryShown = true;
+    sessionStorage.setItem(discoverySessionKey, '1');
+    document.dispatchEvent(new CustomEvent('discoveryPrompt:shown', { detail: { trigger } }));
+  }
+
+  function hideDiscoveryPrompt(persist) {
+    if (!discoveryPrompt) return;
+    discoveryPrompt.classList.remove('is-visible');
+    if (persist) {
+      suppressPrompt();
+    }
+  }
+
+  function handleExitIntent(event) {
+    if (event.clientY > 0) return;
+    showDiscoveryPrompt('exit-intent');
+    removeExitIntentListener();
+  }
+
+  function handleScrollTrigger() {
+    const scrollDepth = window.scrollY + window.innerHeight;
+    const threshold = document.body.scrollHeight * 0.6;
+    if (scrollDepth >= threshold) {
+      showDiscoveryPrompt('scroll');
+      window.removeEventListener('scroll', handleScrollTrigger);
+    }
+  }
+
+  function removeExitIntentListener() {
+    document.removeEventListener('mouseout', handleExitIntent);
+  }
+
+  if (!isPromptSuppressed()) {
+    document.addEventListener('mouseout', handleExitIntent);
+    window.addEventListener('scroll', handleScrollTrigger, { passive: true });
+    window.addEventListener('beforeunload', () => {
+      if (discoveryPrompt?.classList.contains('is-visible')) {
+        suppressPrompt();
+      }
+    });
   }
 
   class SparkRunner {
